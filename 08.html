@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-20_08</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function App() {
+        const [isChecked, setIsChecked] = React.useState(false);
+        const [isSelected, setIsSelected] = React.useState("не позначено");
+
+        const handleSelectChange = (event) => {
+          setIsSelected(event.target.value === "позначено" ? "не позначено" : "позначено");
+          setIsChecked(!isChecked);
+        };
+
+        return (
+          <div>
+            <label>
+              Стан чекбоксу: {isChecked ? "позначено" : "не позначено"}
+              <input type="checkbox" checked={isChecked} onChange={() => setIsChecked(!isChecked)} />
+            </label>
+            <br />
+            <label>
+              Стан селекту: {isSelected}
+              <select value={isSelected} onChange={handleSelectChange}>
+                <option value="не позначено">не позначено</option>
+                <option value="позначено">позначено</option>
+              </select>
+            </label>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

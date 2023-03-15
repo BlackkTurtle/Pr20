@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-20_05</title>
+  </head>
+  <body>
+    <label>
+        <input type="radio" name="radioGroup" value="1" onchange="updateText()"> 1
+      </label>
+      <label>
+        <input type="radio" name="radioGroup" value="2" onchange="updateText()"> 2
+      </label>
+      <label>
+        <input type="radio" name="radioGroup" value="3" onchange="updateText()"> 3
+      </label>
+      <p id="selected-value"></p>
+      
+      <script>
+        function updateText() {
+          const selectedValue = document.querySelector('input[name="radioGroup"]:checked').value;
+          const selectedValueText = document.getElementById("selected-value");
+          selectedValueText.innerText = "Ви обрали: " + selectedValue;
+        }
+      </script>
+      
+  </body>
+</html>

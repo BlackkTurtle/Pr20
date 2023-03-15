@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-20_06</title>
+  </head>
+  <body>
+    <textarea id="text-input"></textarea>
+<button onclick="addText()">Додати текст</button>
+<div id="text-container"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.6.3/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.6.3/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script type="text/babel">
+  class App extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        texts: []
+      };
+    }
+
+    addText() {
+      const textInput = document.getElementById("text-input");
+      const newText = textInput.value;
+      textInput.value = "";
+      this.setState(prevState => ({
+        texts: [...prevState.texts, newText]
+      }));
+    }
+
+    render() {
+      return (
+        <div>
+          <textarea id="text-input"></textarea>
+          <button onClick={() => this.addText()}>Додати текст</button>
+          <div id="text-container">
+            {this.state.texts.map((text, index) => (
+              <p key={index}>{text}</p>
+            ))}
+          </div>
+        </div>
+      );
+    }
+  }
+
+  ReactDOM.render(<App />, document.getElementById("root"));
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-20_02</title>
+  </head>
+  <body>
+    <input type="checkbox" id="myCheckbox" onchange="updateParagraph()" />
+<label for="myCheckbox">Check me</label>
+<p id="myParagraph"></p>
+
+<script>
+function updateParagraph() {
+  var checkboxValue = document.getElementById("myCheckbox").checked;
+  var paragraph = document.getElementById("myParagraph");
+  if (checkboxValue) {
+    paragraph.innerHTML = "Checkbox is checked";
+  } else {
+    paragraph.innerHTML = "Checkbox is not checked";
+  }
+}
+</script>
+
+  </body>
+</html>
+

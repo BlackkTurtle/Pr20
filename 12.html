@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-20_12</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  </head>
+  <body>
+	<select id="daySelect"></select>
+	<select id="monthSelect"></select>
+	<select id="yearSelect"></select>
+	<p id="dayOfWeek"></p>
+
+	<script>
+		let daysOfWeek = ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"];
+
+		let daySelect = document.getElementById("daySelect");
+		let monthSelect = document.getElementById("monthSelect");
+		let yearSelect = document.getElementById("yearSelect");
+		let dayOfWeek = document.getElementById("dayOfWeek");
+
+		let date = new Date();
+		for (let i = 1; i <= 31; i++) {
+			let option = document.createElement("option");
+			option.text = i;
+			daySelect.add(option);
+		}
+		daySelect.value = date.getDate();
+		for (let i = 0; i < 12; i++) {
+			let option = document.createElement("option");
+			option.text = i + 1;
+			monthSelect.add(option);
+		}
+		monthSelect.value = date.getMonth() + 1;
+		let currentYear = date.getFullYear();
+		for (let i = currentYear - 10; i <= currentYear + 10; i++) {
+			let option = document.createElement("option");
+			option.text = i;
+			yearSelect.add(option);
+		}
+		yearSelect.value = currentYear;
+
+
+		function displayDayOfWeek() {
+			let selectedDate = new Date(yearSelect.value, monthSelect.value - 1, daySelect.value);
+			dayOfWeek.innerText = daysOfWeek[selectedDate.getDay()];
+		}
+
+
+		daySelect.addEventListener("change", displayDayOfWeek);
+		monthSelect.addEventListener("change", displayDayOfWeek);
+		yearSelect.addEventListener("change", displayDayOfWeek);
+	</script>
+</body>
+
+</html>

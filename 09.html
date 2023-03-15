@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-20_09</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      import React, { Component } from 'react';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedOption: '',
+    };
+    this.handleSelectChange = this.handleSelectChange.bind(this);
+  }
+
+  handleSelectChange(event) {
+    this.setState({ selectedOption: event.target.value });
+  }
+
+  render() {
+    let paragraph;
+    if (this.state.selectedOption === 'option1') {
+      paragraph = <p>Перший абзац</p>;
+    } else if (this.state.selectedOption === 'option2') {
+      paragraph = <p>Другий абзац</p>;
+    } else if (this.state.selectedOption === 'option3') {
+      paragraph = <p>Третій абзац</p>;
+    }
+    return (
+      <div>
+        <select value={this.state.selectedOption} onChange={this.handleSelectChange}>
+          <option value="">--Виберіть пункт--</option>
+          <option value="option1">Пункт 1</option>
+          <option value="option2">Пункт 2</option>
+          <option value="option3">Пункт 3</option>
+        </select>
+        {paragraph}
+      </div>
+    );
+  }
+}
+
+export default App;
+
+    </script>
+  </body>
+</html>

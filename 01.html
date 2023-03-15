@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-20_01</title>
+  </head>
+  <body>
+    <textarea id="myTextarea" onkeyup="updateParagraph()"></textarea>
+<p id="myParagraph"></p>
+
+<script>
+function updateParagraph() {
+  var textareaValue = document.getElementById("myTextarea").value;
+  document.getElementById("myParagraph").innerHTML = textareaValue;
+}
+</script>
+  </body>
+</html>
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-20_03</title>
+  </head>
+  <body>
+    <label for="checkbox">Показати текст</label>
+    <input type="checkbox" id="checkbox" onchange="toggleVisibility()">
+    <p id="text" style="display: none;">Текст, який з'явиться, якщо чекбокс відмічений</p>
+    
+    <script>
+      function toggleVisibility() {
+        const checkbox = document.getElementById("checkbox");
+        const text = document.getElementById("text");
+        text.style.display = checkbox.checked ? "block" : "none";
+      }
+    </script>
+    
+  </body>
+</html>
+

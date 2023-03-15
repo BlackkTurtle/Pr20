@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-20_04</title>
+  </head>
+  <body>
+    <label for="city-select">Оберіть місто:</label>
+<select id="city-select" onchange="updateCity()">
+  <option value="kyiv">Київ</option>
+  <option value="lviv">Львів</option>
+  <option value="odessa">Одеса</option>
+</select>
+<p id="city-text"></p>
+
+<script>
+  function updateCity() {
+    const select = document.getElementById("city-select");
+    const cityText = document.getElementById("city-text");
+    cityText.innerText = "Ви обрали " + select.options[select.selectedIndex].text;
+  }
+</script>
+
+  </body>
+</html>

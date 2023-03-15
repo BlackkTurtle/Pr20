@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-20_10</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  </head>
+  <body>
+	<input type="text" id="textInput">
+	<button onclick="addToSelect()">Додати до селекту</button>
+	<select id="selectList">
+		<option value="option1">Опція 1</option>
+		<option value="option2">Опція 2</option>
+		<option value="option3">Опція 3</option>
+	</select>
+
+	<script>
+		function addToSelect() {
+			let textInput = document.getElementById("textInput");
+			let selectList = document.getElementById("selectList");
+			let newOption = document.createElement("option");
+			newOption.value = textInput.value;
+			newOption.text = textInput.value;
+			selectList.add(newOption);
+			textInput.value = "";
+		}
+	</script>
+</body>
+</html>
